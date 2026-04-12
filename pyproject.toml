@@ -1,0 +1,93 @@
+[project]
+name = "django-portifolio"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django==5.2",
+    "python-decouple>=3.8",
+]
+
+[tool.pyrefly.errors]
+missing-attribute = false
+bad-assignment = false
+bad-return = false
+unknown-name = false
+bad-argument-type = false
+bad-override = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+fix = true
+show-fixes = true
+indent-width = 4
+exclude = ["__pycache__", "migrations", ".venv", ".env-example"]
+
+[tool.ruff.lint]
+select = [
+    "ASYNC",
+    "A",
+    "ANN",
+    "B",
+    "BLE",
+    "C4",
+    "C90",
+    "COM",
+    "DJ",
+    "E",
+    "EM",
+    "ERA",
+    "EXE",
+    "F",
+    "FBT",
+    "FIX",
+    "I",
+    "ICN",
+    "ISC",
+    "Q",
+    "RET",
+    "RSE",
+    "S",
+    "SIM",
+    "SLF",
+    "T10",
+    "T20",
+    "TC",
+    "TD",
+    "TRY",
+    "UP",
+    "W",
+    "YTT",
+    "RUF",
+    "N",
+]
+ignore = ["ANN002", "ANN003", "RUF012"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["ANN201", "S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.basedpyright]
+typeCheckingMode = "strict"
+pythonVersion = "3.12"
+include = ["."]
+ignore = ["**/__pycache__", ".venv", "**/site-packages", "**/migrations/**"]
+reportUnknownMemberType = "none"
+reportUnknownVariableType = "none"
+reportUnknownParameterType = "none"
+reportMissingParameterType = "none"
+reportUnknownArgumentType = "none"
+reportUnusedImport = "none"
+reportAny = "none"
+reportAttributeAccessIssue = "none"
+
+[dependency-groups]
+dev = [
+    "djlint>=1.36.4",
+]
