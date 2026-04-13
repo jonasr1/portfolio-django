@@ -1,88 +1,49 @@
 {% extends "core/base.html" %}
-
-{% block title %}Projetos - Meu Portfólio{% endblock title %}
-
-{% block header_title %}Meus Projetos{% endblock header_title %}
-
+{% load static %}
+{% block title %}
+    Projetos - Meu Portfólio
+{% endblock title %}
+{% block header_title %}
+    Meus Projetos
+{% endblock header_title %}
 {% block extra_css %}
-.projeto-card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-left: 4px solid #3498db;
-}
-.projeto-card h3 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-.projeto-card p {
-    color: #555;
-    margin-bottom: 10px;
-}
-.projeto-card .tipo {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    color: white;
-    margin-bottom: 10px;
-}
-.tipo-pessoal {
-    background-color: #27ae60;
-}
-.tipo-disciplina {
-    background-color: #e67e22;
-}
-.projeto-card a {
-    color: #3498db;
-    text-decoration: none;
-}
-.projeto-card a:hover {
-    text-decoration: underline;
-}
+    <link rel="stylesheet" href="{% static 'portfolio/css/projetos.css' %}">
 {% endblock extra_css %}
-
 {% block content %}
-<div class="projeto-card">
-    <span class="tipo tipo-pessoal">Projeto Pessoal</span>
-    <h3>To-Do List em Django</h3>
-    <p>
-        Aplicação web para gerenciamento de tarefas pessoais, desenvolvida
-        com Django e Bootstrap. Possui autenticação de usuários e CRUD completo.
-    </p>
-    <a href="#">github.com/joaosilva/todo-django</a>
-</div>
-
-<div class="projeto-card">
-    <span class="tipo tipo-disciplina">Projeto de Disciplina</span>
-    <h3>Sistema de Enquetes (Polls)</h3>
-    <p>
-        Sistema de enquetes desenvolvido na disciplina de Programação Web,
-        seguindo o tutorial oficial do Django. Permite criar perguntas
-        e registrar votos.
-    </p>
-    <a href="#">github.com/joaosilva/django-polls</a>
-</div>
-
-<div class="projeto-card">
-    <span class="tipo tipo-pessoal">Projeto Pessoal</span>
-    <h3>API de Clima</h3>
-    <p>
-        API REST desenvolvida com Django REST Framework que consulta
-        dados climáticos e retorna previsões para cidades brasileiras.
-    </p>
-    <a href="#">github.com/joaosilva/clima-api</a>
-</div>
-
-<div class="projeto-card">
-    <span class="tipo tipo-disciplina">Projeto de Disciplina</span>
-    <h3>Dashboard de Vendas</h3>
-    <p>
-        Dashboard interativo para análise de dados de vendas,
-        desenvolvido na disciplina de Banco de Dados com Python e Pandas.
-    </p>
-    <a href="#">github.com/joaosilva/dashboard-vendas</a>
-</div>
+    <div class="projeto-card">
+        <span class="tipo tipo-pessoal">Projeto Pessoal</span>
+        <h3>Django Recipes – Plataforma de Receitas</h3>
+        <p>
+            Aplicação web completa para gerenciamento de receitas, com autenticação de usuários, painel administrativo, API REST e sistema de busca, categorias e tags.
+            Tecnologias: Python, Django, Django REST Framework, PostgreSQL/SQLite, Pytest.
+        </p>
+        <a href="#">https://github.com/jonasr1/django-recipes</a>
+    </div>
+    <div class="projeto-card">
+        <span class="tipo tipo-disciplina">Projeto de Disciplina</span>
+        <h3>Projeto SAD – Análise de Dados do SINARM</h3>
+        <p>
+            Sistema de análise de dados baseado em registros de portes de arma no Brasil (2004–2023), com foco em geração de insights estratégicos e apoio à tomada de decisão. O projeto envolve todo o pipeline de dados, desde a ingestão e transformação (ETL), até a modelagem dimensional e criação de dashboards interativos.
+            Tecnologias utilizadas: PostgreSQL, Pentaho PDI, Power BI, DBeaver.
+        </p>
+        <a href="#">https://github.com/jonasr1/sad-sinarm-projeto</a>
+    </div>
+    <div class="projeto-card">
+        <span class="tipo tipo-pessoal">Projeto Pessoal</span>
+        <h3>To-Do List API – API de Gerenciamento de Tarefas</h3>
+        <p>
+            API REST com autenticação JWT, CRUD de tarefas, filtros, paginação, métricas e histórico de alterações.
+            Tecnologias: Python, Django, Django REST Framework, Redis, JWT, Docker, PostgreSQL/SQLite.
+        </p>
+        <a href="#">https://github.com/TombaAqui</a>
+    </div>
+    <div class="projeto-card">
+        <span class="tipo tipo-disciplina">Projeto Pessoal</span>
+        <h3>TombaAqui – Sistema de Tombamento</h3>
+        <p>
+            Sistema com microserviços para autenticação e gerenciamento de equipamentos.
+            Tecnologias: Python, FastAPI, SQLAlchemy, PostgreSQL, JWT, Docker.
+        </p>
+        <a href="#">https://github.com/TombaAqui</a>
+    </div>
 {% endblock content %}

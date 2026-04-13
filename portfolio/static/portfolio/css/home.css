@@ -1,0 +1,50 @@
+.perfil {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.perfil img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2c3e50;
+  margin-bottom: 15px;
+}
+
+.perfil h2 {
+  margin-bottom: 5px;
+}
+
+.perfil p {
+  color: #646464;
+}
+
+.secao {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.secao h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+}
+
+.secao ul {
+  list-style: none;
+  padding: 0;
+}
+
+.secao ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.secao ul li:last-child {
+  border-bottom: none;
+}
