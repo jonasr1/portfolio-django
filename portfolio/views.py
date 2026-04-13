@@ -6,5 +6,9 @@ def home(request: HttpRequest) -> HttpResponse:
     return render(request, "portfolio/home.html")
 
 
-def projetos(request: HttpRequest) -> HttpResponse:
-    return render(request, "portfolio/projetos.html")
+def projects(request: HttpRequest) -> HttpResponse:
+    return render(request, "portfolio/projects.html")
+
+
+def contact(request: HttpRequest) -> HttpResponse:
+    return render(request, "portfolio/contact.html")

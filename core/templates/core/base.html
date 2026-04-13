@@ -1,8 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-    <meta name="keywords" content="portfolio, django, projetos, programação">
+<head>
+    <meta name="keywords" content="portfolio, django, projects, programming">
     <meta name="description"
         content="{% block meta_description %}Portfólio{% endblock meta_description %}">
     <meta charset="UTF-8">
@@ -18,7 +18,8 @@
 
     <nav>
         <a href="{% url 'portfolio:home' %}">Início</a>
-        <a href="{% url 'portfolio:projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:projects' %}">Projetos</a>
+        <a href="{% url 'portfolio:contact' %}">Contato</a>
     </nav>
 
     <div class="container">

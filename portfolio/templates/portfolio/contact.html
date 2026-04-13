@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+  Contato
+{% endblock title %}
+{% block header_title %}
+  Contato
+{% endblock header_title %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'portfolio/css/contact.css' %}">
+{% endblock extra_css %}
+{% block content %}
+  <div class="contact-section">
+    <h2>Entre em contato</h2>
+    <ul class="contact-list">
+      <li>
+        <strong>Email:</strong>
+        <a href="mailto:jonas.renan@ufrpe.br">jonas.renan@ufrpe.br</a>
+      </li>
+      <li>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/jonasr1" target="_blank" rel="noopener noreferrer">github.com/jonasr1</a>
+      </li>
+      <li>
+        <strong>LinkedIn:</strong>
+        <a href="https://linkedin.com/in/jonas-renan-425591232" target="_blank" rel="noopener noreferrer">linkedin.com/in/jonas-renan</a>
+      </li>
+    </ul>
+  </div>
+{% endblock content %}

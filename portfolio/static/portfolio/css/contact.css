@@ -1,0 +1,84 @@
+.contact-section {
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 28px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #3498db;
+}
+
+.contact-section h2 {
+    color: #2c3e50;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+.contact-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-list strong {
+    min-width: 90px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.contact-list a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    word-break: break-word;
+}
+
+.contact-list a:hover {
+    background: #eef7ff;
+}
+
+.contact-list a:focus-visible {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.contact-list a[target="_blank"]::after {
+    content: "↗";
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.9em;
+    opacity: 0.75;
+}
+
+@media (max-width: 520px) {
+    .contact-section {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .contact-list li {
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+    }
+
+    .contact-list strong {
+        min-width: 0;
+    }
+}
