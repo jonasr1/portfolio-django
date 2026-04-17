@@ -15,15 +15,15 @@
     <ul class="contact-list">
       <li>
         <strong>Email:</strong>
-        <a href="mailto:jonas.renan@ufrpe.br">jonas.renan@ufrpe.br</a>
+        <a href="mailto:{{ user.email }}">{{ user.email }}</a>
       </li>
       <li>
         <strong>GitHub:</strong>
-        <a href="https://github.com/jonasr1" target="_blank" rel="noopener noreferrer">github.com/jonasr1</a>
+        <a href="{{ user.git }}" target="_blank">{{ user.git }}</a>
       </li>
       <li>
         <strong>LinkedIn:</strong>
-        <a href="https://linkedin.com/in/jonas-renan-425591232" target="_blank" rel="noopener noreferrer">linkedin.com/in/jonas-renan</a>
+        <a href="{{ user.linked }}" target="_blank">{{ user.linked }}</a>
       </li>
     </ul>
   </div>

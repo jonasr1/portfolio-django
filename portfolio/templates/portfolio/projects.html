@@ -10,40 +10,14 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/projects.css' %}">
 {% endblock extra_css %}
 {% block content %}
-    <div class="project-card">
-        <span class="type type-personal">Projeto Pessoal</span>
-        <h3>Django Recipes – Plataforma de Receitas</h3>
-        <p>
-            Aplicação web completa para gerenciamento de receitas, com autenticação de usuários, painel administrativo, API REST e sistema de busca, categorias e tags.
-            Tecnologias: Python, Django, Django REST Framework, PostgreSQL/SQLite, Pytest.
-        </p>
-        <a href="#">https://github.com/jonasr1/django-recipes</a>
-    </div>
-    <div class="project-card">
-        <span class="type type-subject">Projeto de Disciplina</span>
-        <h3>Projeto SAD – Análise de Dados do SINARM</h3>
-        <p>
-            Sistema de análise de dados baseado em registros de portes de arma no Brasil (2004–2023), com foco em geração de insights estratégicos e apoio à tomada de decisão. O projeto envolve todo o pipeline de dados, desde a ingestão e transformação (ETL), até a modelagem dimensional e criação de dashboards interativos.
-            Tecnologias utilizadas: PostgreSQL, Pentaho PDI, Power BI, DBeaver.
-        </p>
-        <a href="#">https://github.com/jonasr1/sad-sinarm-projeto</a>
-    </div>
-    <div class="project-card">
-        <span class="type type-personal">Projeto Pessoal</span>
-        <h3>To-Do List API – API de Gerenciamento de Tarefas</h3>
-        <p>
-            API REST com autenticação JWT, CRUD de tarefas, filtros, paginação, métricas e histórico de alterações.
-            Tecnologias: Python, Django, Django REST Framework, Redis, JWT, Docker, PostgreSQL/SQLite.
-        </p>
-        <a href="#">https://github.com/TombaAqui</a>
-    </div>
-    <div class="project-card">
-        <span class="type type-subject">Projeto Pessoal</span>
-        <h3>TombaAqui – Sistema de Tombamento</h3>
-        <p>
-            Sistema com microserviços para autenticação e gerenciamento de equipamentos.
-            Tecnologias: Python, FastAPI, SQLAlchemy, PostgreSQL, JWT, Docker.
-        </p>
-        <a href="#">https://github.com/TombaAqui</a>
-    </div>
+    {% for project in projects %}
+        <div class="project-card">
+            <span class="type type-{{ project.project_type }}">Projeto {{ project.get_project_type_display }}</span>
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            <a href="{{ project.git_link }}"
+               target="_blank"
+               rel="noopener noreferrer">Ver projeto</a>
+        </div>
+    {% endfor %}
 {% endblock content %}

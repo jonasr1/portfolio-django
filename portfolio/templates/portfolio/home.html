@@ -1,46 +1,52 @@
 {% extends "core/base.html" %}
 {% load static %}
-
-{% block title %}Início - Meu Portfólio{% endblock title %}
-
-{% block header_title %}Jonas Renan{% endblock header_title %}
-
+{% block title %}
+    Início - Meu Portfólio
+{% endblock title %}
+{% block header_title %}
+    {{ user.name|default:"Meu Portfólio" }}
+{% endblock header_title %}
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
 {% endblock extra_css %}
-
 {% block content %}
-<div class="profile">
-    <img src="https://via.placeholder.com/180" alt="Foto do Aluno">
-    <h2>Jonas Renan</h2>
-    <p>Estudante de Sistemas de Informação - UAST/UFRPE</p>
-</div>
-
-<div class="section">
-    <h3>Sobre Mim</h3>
-    <p>
-        Olá! Sou estudante de Sistemas de Informação na UAST/UFRPE.
-        Tenho interesse em desenvolvimento web, ciência de dados e
-        inteligência artificial. Busco sempre aprender novas tecnologias
-        e contribuir com projetos open source.
-    </p>
-</div>
-
-<div class="section">
-    <h3>Dados Pessoais</h3>
-    <ul>
-        <li><strong>Nome:</strong> Jonas Renan</li>
-        <li><strong>Curso:</strong> Bacharelado em Sistemas de Informação</li>
-        <li><strong>Período:</strong> 7º</li>
-    </ul>
-</div>
-
-<div class="section">
-    <h3>Cursos e Certificados</h3>
-    <ul>
-        <li>Curso de Django Web Framework e Django Rest Framework (DRF) - Udemy (2026)</li>
-        <li>Git e GitHub - Curso em Vídeo (2023)</li>
-        <li>Lógica de Programação Essencial - DIO (2023)</li>
-    </ul>
-</div>
+    <div class="profile">
+        {% if user.url_imagem %}
+            <img src="{{ user.url_imagem.url }}" alt="Foto de {{ user.name }}" width="180" height="180">
+        {% else %}
+            <img src="https://via.placeholder.com/180" alt="Foto de {{ user.name }}" width="180" height="180">
+        {% endif %}        <h2>{{ user.name|default:"Nome não configurado" }}</h2>
+        <p>Estudante de {{ user.course }}</p>
+    </div>
+    <div class="section">
+        <h3>Sobre Mim</h3>
+        <p>{{ user.description|linebreaks }}</p>
+    </div>
+    <div class="section">
+        <h3>Dados Pessoais</h3>
+        <ul>
+            <li>
+                <strong>Nome:</strong> {{ user.name }}
+            </li>
+            <li>
+                <strong>Curso:</strong> {{ user.course }}
+            </li>
+            <li>
+                <strong>Período:</strong> {{ user.period }}º
+            </li>
+        </ul>
+    </div>
+    <div class="section">
+        <h3>Cursos e Certificados</h3>
+        <ul>
+            {% for certificate in certificates %}
+                <li>
+                    {{ certificate.title }}
+                    {% if certificate.description %}- {{ certificate.description }}{% endif %}
+                </li>
+            {% empty %}
+                <li>Nenhum certificado cadastrado.</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock content %}

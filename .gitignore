@@ -12,3 +12,6 @@ wheels/
 .vscode
 db.sqlite3
 .env
+
+media/
+aula_templates.md
