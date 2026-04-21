@@ -69,16 +69,29 @@ TEMPLATES = [
 WSGI_APPLICATION = "core.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+DB_ENGINE = config("DB_ENGINE", default="django.db.backends.sqlite3")
+DB_HOST = config("DB_HOST", default=None)
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
-}
-
+if DB_ENGINE == "django.db.backends.sqlite3" or not DB_HOST:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": config("SQLITE_NAME", default=str(BASE_DIR / "db.sqlite3")),
+        },
+    }
+else:
+    DB_SSLMODE = config("DB_SSLMODE", default="require")
+    DATABASES = {
+        "default": {
+            "ENGINE": DB_ENGINE,
+            "NAME": config("DB_NAME", default="postgres"),
+            "USER": config("DB_USER", default="postgres"),
+            "PASSWORD": config("DB_PASSWORD", default=""),
+            "HOST": DB_HOST,
+            "PORT": config("DB_PORT", default=5432, cast=int),
+            "OPTIONS": {"sslmode": DB_SSLMODE} if DB_SSLMODE else {},
+        },
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
