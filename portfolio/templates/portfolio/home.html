@@ -11,11 +11,11 @@
 {% endblock extra_css %}
 {% block content %}
     <div class="profile">
-        {% if user.url_imagem %}
-            <img src="{{ user.url_imagem.url }}" alt="Foto de {{ user.name }}" width="180" height="180">
-        {% else %}
-            <img src="https://via.placeholder.com/180" alt="Foto de {{ user.name }}" width="180" height="180">
-        {% endif %}        <h2>{{ user.name|default:"Nome não configurado" }}</h2>
+        <img src="{{ user.image_url }}"
+             alt="Foto de {{ user.name|default:'perfil' }}"
+             width="180"
+             height="180">
+        <h2>{{ user.name|default:"Nome não configurado" }}</h2>
         <p>Estudante de {{ user.course }}</p>
     </div>
     <div class="section">
