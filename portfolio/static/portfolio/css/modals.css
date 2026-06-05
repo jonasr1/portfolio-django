@@ -1,0 +1,123 @@
+/* Estilos para os Modais de Edição e Login */
+.btn-edit-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn-hidden {
+    display: none;
+}
+
+.btn-edit-main {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-edit-main:hover {
+    background-color: #2980b9;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-overlay-scroll {
+    overflow-y: auto;
+}
+
+.modal-card {
+    background: white;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-card-large {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.modal-card h3 {
+    margin-bottom: 20px; 
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group-small {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%; 
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-action-group {
+    margin-top: 20px;
+}
+
+.btn-save {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-save:hover {
+    background-color: #219150;
+}
+
+.btn-cancel {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #7f8c8d;
+}
+
+.error-text {
+    color: red; 
+    display: none;
+}
+
+.success-text {
+    color: green; 
+    display: none;
+}

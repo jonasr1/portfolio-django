@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "django==5.2",
+    "djangorestframework>=3.17.1",
+    "djangorestframework-simplejwt>=5.5.1",
+    "markdown>=3.10.2",
     "pillow>=12.2.0",
     "python-decouple>=3.8",
 ]
@@ -17,6 +20,7 @@ bad-return = false
 unknown-name = false
 bad-argument-type = false
 bad-override = false
+missing-module-attribute = false
 
 [tool.ruff]
 line-length = 88
@@ -90,5 +94,6 @@ reportAttributeAccessIssue = "none"
 
 [dependency-groups]
 dev = [
+    "django-stubs>=6.0.4",
     "djlint>=1.36.4",
 ]

@@ -4,35 +4,36 @@
     Início - Meu Portfólio
 {% endblock title %}
 {% block header_title %}
-    {{ user.name|default:"Meu Portfólio" }}
+    {{ profile.name|default:"Meu Portfólio" }}
 {% endblock header_title %}
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/modals.css' %}">
 {% endblock extra_css %}
 {% block content %}
     <div class="profile">
-        {% if user.url_imagem %}
-            <img src="{{ user.url_imagem.url }}" alt="Foto de {{ user.name }}" width="180" height="180">
+        {% if profile.url_imagem %}
+            <img src="{{ profile.url_imagem.url }}" alt="Foto de {{ profile.name }}" width="180" height="180">
         {% else %}
-            <img src="https://via.placeholder.com/180" alt="Foto de {{ user.name }}" width="180" height="180">
-        {% endif %}        <h2>{{ user.name|default:"Nome não configurado" }}</h2>
-        <p>Estudante de {{ user.course }}</p>
+            <img src="https://via.placeholder.com/180" alt="Foto de {{ profile.name }}" width="180" height="180">
+        {% endif %}        <h2>{{ profile.name|default:"Nome não configurado" }}</h2>
+        <p>Estudante de {{ profile.course }}</p>
     </div>
     <div class="section">
         <h3>Sobre Mim</h3>
-        <p>{{ user.description|linebreaks }}</p>
+        <p>{{ profile.description|linebreaks }}</p>
     </div>
     <div class="section">
         <h3>Dados Pessoais</h3>
         <ul>
             <li>
-                <strong>Nome:</strong> {{ user.name }}
+                <strong>Nome:</strong> {{ profile.name }}
             </li>
             <li>
-                <strong>Curso:</strong> {{ user.course }}
+                <strong>Curso:</strong> {{ profile.course }}
             </li>
             <li>
-                <strong>Período:</strong> {{ user.period }}º
+                <strong>Período:</strong> {{ profile.period }}º
             </li>
         </ul>
     </div>
@@ -49,4 +50,89 @@
             {% endfor %}
         </ul>
     </div>
+
+    <!-- Botao Editar Perfil -->
+    <div class="btn-edit-container">
+        <button id="btn-editar" type="button" class="btn-edit-main">Editar Perfil</button>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="modal-login" class="modal-overlay">
+        <div class="modal-card">
+            <h3>Login para Editar</h3>
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" id="login-username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Senha:</label>
+                <input type="password" id="login-password" class="form-control">
+            </div>
+            <p id="login-erro" class="error-text"></p>
+            <div class="btn-action-group">
+                <button id="btn-login" type="button" class="btn-save">Entrar</button>
+                <button id="btn-cancelar-login" type="button" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edicao do Perfil -->
+    <div id="modal-editar" class="modal-overlay modal-overlay-scroll">
+        <div class="modal-card modal-card-large">
+            <h3>Editar Perfil</h3>
+
+            <div class="form-group-small">
+                <label>Nome:</label>
+                <input type="text" id="edit-nome" class="form-control">
+            </div>
+
+            <div class="form-group-small">
+                <label>Descrição:</label>
+                <textarea id="edit-descricao" rows="3" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group-small">
+                <label>Curso:</label>
+                <input type="text" id="edit-curso" class="form-control">
+            </div>
+
+            <div class="form-group-small">
+                <label>Período:</label>
+                <input type="text" id="edit-periodo" class="form-control">
+            </div>
+
+            <div class="form-group-small">
+                <label>E-mail:</label>
+                <input type="email" id="edit-email" class="form-control">
+            </div>
+
+            <div class="form-group-small">
+                <label>GitHub:</label>
+                <input type="url" id="edit-git" class="form-control">
+            </div>
+
+            <div class="form-group-small">
+                <label>LinkedIn:</label>
+                <input type="url" id="edit-linked" class="form-control">
+            </div>
+
+            <div class="form-group-small">
+                <label>Foto de Perfil:</label>
+                <input type="file" id="edit-url_imagem" class="form-control" accept="image/*">
+            </div>
+
+            <p id="edit-sucesso" class="success-text">Perfil atualizado!</p>
+            <p id="edit-erro" class="error-text"></p>
+
+            <div class="btn-action-group">
+                <button id="btn-salvar" type="button" class="btn-save">Salvar</button>
+                <button id="btn-sair" type="button" class="btn-cancel btn-hidden">Sair</button>
+                <button id="btn-cancelar-editar" type="button" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'portfolio/js/home.js' %}"></script>
+{% endblock extra_js %}

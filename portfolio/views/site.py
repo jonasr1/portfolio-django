@@ -6,13 +6,13 @@ from portfolio.models import Certificate, Project
 
 
 def home(request: HttpRequest) -> HttpResponse:
-    user: Profile = Profile.objects.all().first()
+    profile: Profile = Profile.objects.all().first()
     certificates: Certificate = Certificate.objects.all()
     return render(
         request,
         "portfolio/home.html",
         {
-            "user": user,
+            "profile": profile,
             "certificates": certificates,
         },
     )
