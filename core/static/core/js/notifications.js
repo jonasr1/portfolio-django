@@ -134,7 +134,7 @@
                 });
             })
             .catch(function() {
-                notifList.innerHTML = '<div class="notif-empty">Error loading notifications.</div>';
+                notifList.innerHTML = '<div class="notif-empty">Erro ao carregar notificações.</div>';
             });
     }
 
