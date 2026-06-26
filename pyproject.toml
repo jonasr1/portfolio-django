@@ -96,4 +96,6 @@ reportAttributeAccessIssue = "none"
 dev = [
     "django-stubs>=6.0.4",
     "djlint>=1.36.4",
+    "mypy>=2.1.0",
+    "python-decouple-stubs>=3.8.0.4",
 ]
